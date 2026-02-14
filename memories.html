@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Us ❤️</title>
+  <title>Amo te ❤️</title>
+
   <style>
     body {
       min-height: 100vh;
@@ -28,17 +29,18 @@
       margin-bottom: 15px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .gallery img {
+    .slideshow img {
       width: 100%;
       border-radius: 15px;
       object-fit: cover;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    #caption {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
     }
 
     p {
@@ -47,16 +49,15 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
-    <h1>Fizeste a escolha certaaaa❤️</h1>
+    <h1>Fizeste a escolha certaaaa ❤️</h1>
 
-    <div class="gallery">
-      <img src="images/imageEstudio.PNG">
-      <img src="images/imageJorge.jpg">
-      <img src="images/imageMask.jpg">
-      <img src="images/imageNight.jpg">
+    <div class="slideshow">
+      <img id="slideImage" src="images/image1.PNG" alt="Us ❤️">
+      <p id="caption">Primeira foto juntos 💖</p>
     </div>
 
     <p>
@@ -64,6 +65,31 @@
       Happy Valentine’s Day, coisa fofaaa 😘
     </p>
   </div>
+
+  <script>
+    const slides = [
+      { src: "images/imageMask.jpg", text: "O que eu faço por ti!!" },
+      { src: "images/imageEstudio.PNG", text: "Nós no nosso estudio💕" },
+      { src: "images/imageJorge.jpg", text: "Em são jorge 😍" },
+      { src: "images/imageNight.jpg", text: "Sempre lindos meu amor ❤️" }
+    ];
+
+    let index = 0;
+    const img = document.getElementById("slideImage");
+    const caption = document.getElementById("caption");
+    img.src = slides[0].src;
+    caption.textContent = slides[0].text;
+    setInterval(() => {
+      img.style.opacity = 0;
+
+      setTimeout(() => {
+        index = (index + 1) % slides.length;
+        img.src = slides[index].src;
+        caption.textContent = slides[index].text;
+        img.style.opacity = 1;
+      }, 1000);
+    }, 3500);
+  </script>
 
 </body>
 </html>
