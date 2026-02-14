@@ -49,26 +49,17 @@
 
   <div class="card">
     <h1>Will you be my baby Ala? ❤️</h1>
+    <div class="photos">
+      <img src="images/image1.PNG" alt="Us ❤️">
+      
+    </div>
     <button id="yes" onclick="yesClicked()">YES 💕</button>
     <button id="no" onmouseover="moveNo()">NO 💔</button>
   </div>
 
   <script>
     function yesClicked() {
-      document.body.innerHTML = `
-        <div style="
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          height:100vh;
-          background:#ff4d6d;
-          color:white;
-          font-family:Arial;
-          text-align:center;
-        ">
-          <h1>YEYYYYY! 💖<br>Escolha certa coisa lindaaa, I LOVE UUU ❤️❤️❤️</h1>
-        </div>
-      `;
+      window.location.href = "memories.html";
     }
 
     function moveNo() {
